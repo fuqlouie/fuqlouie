@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="flipclock.css">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+		<script src="flipclock.js"></script>	
+	</head>
+	<body style="background-color: black; color: white;">
+		<h1 align="center">Countdown to ...</h1>
+		<h1 align="center"><font size="10">Freeeeedom!!!</font></h1>
+		<h1 align="center"><font size="15" color="red">FUCK LOUIE!!!!</font></h1>	
+		<div class="clock" style="display: flex; flex-direction: row; justify-content: center; align-items: center; text-align: center; min-height: 40vh;"></div>
+		
+		<script type="text/javascript">
+			var clock;
+
+			$(document).ready(function() {
+
+				// Grab the current date
+				var currentDate = new Date();
+
+				// Set some date in the future. In this case, it's always Jan 1
+				var futureDate  = new Date(2018, 9, 26);
+
+				// Calculate the difference in seconds between the future and current date
+				var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+				if (diff < 0)
+				{
+					diff = 0;
+				}
+
+				// Instantiate a coutdown FlipClock
+				clock = $('.clock').FlipClock(diff, {
+					clockFace: 'DailyCounter',
+					countdown: true
+				});
+			});
+		</script>
+		
+	</body>
+</html>
